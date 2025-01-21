@@ -8,46 +8,46 @@
 		body {
 			font-family: Arial, sans-serif;
 			line-height: 1.6;
-			background-color: #f9f9f9;
-			margin: 0;
-			padding: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-			flex-direction: column;
+			margin: 20px;
 		}
 		h1 {
 			color: #333;
-			margin-bottom: 20px;
 		}
-		.button-list {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
+		ul {
+			list-style-type: none;
+			padding: 0;
 		}
-		.button-list button {
-			padding: 10px 20px;
-			font-size: 16px;
-			color: white;
-			background-color: #007acc;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			text-transform: uppercase;
+		li {
+			margin: 10px 0;
 		}
-		.button-list button:hover {
-			background-color: #005a99;
+		a {
+			color: #007acc;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
 		}
 	</style>
 </head>
 <body>
-	<h1>Mine Repositories</h1>
-	<div class="button-list">
-		<button onclick="window.location.href='https://github.com/frode10/repo1'">Repository 1</button>
-		<button onclick="window.location.href='https://github.com/frode10/repo2'">Repository 2</button>
-		<button onclick="window.location.href='https://github.com/frode10/repo3'">Repository 3</button>
-		<button onclick="window.location.href='https://github.com/frode10/repo4'">Repository 4</button>
-	</div>
+	<h1>Mine GitHub Repositories</h1>
+	<ul id="repo-list"></ul>
+
+	<script>
+		// Bytt ut "brukernavn" med ditt GitHub-brukernavn
+		const username = 'frode10';
+		const repoList = document.getElementById('repo-list');
+
+		fetch(`https://api.github.com/users/${username}/repos`)
+			.then(response => response.json())
+			.then(data => {
+				data.forEach(repo => {
+					const listItem = document.createElement('li');
+					listItem.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+					repoList.appendChild(listItem);
+				});
+			})
+			.catch(error => console.error('Error fetching repos:', error));
+	</script>
 </body>
 </html>

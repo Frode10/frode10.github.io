@@ -8,11 +8,11 @@
 
 body {
    display:flex;
-   flex-wrap: wrap;
-   align-items: center;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 20px;
+   flex-wrap:wrap;
+   align-items:center;
+    font-family:Arial, sans-serif;
+    line-height:1.6;
+    margin:20px;
     background-color: #ffffff;
     width:100%;
     padding:0;
@@ -21,21 +21,16 @@ body {
 
 .text-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: cadetblue;
+    flex-direction:column;
+    background-color:cadetblue;
     padding:2rem;
-    margin-bottom: 2rem;
-    width:1280px;
-   
+    margin-bottom:2rem;
 }
-
-
 h1 {
-    text-align: center;
-    color: #333;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    text-align:center;
+    color:#333;
+    margin-top:2rem;
+    margin-bottom:2rem;
     color:white;
 }
 
@@ -44,16 +39,17 @@ p {
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
     gap:20px;
+   
 }
 
 .card {
-    text-align: center;
+    text-align:center;
     border: 1px solid #ddd;
     border-radius: 10px;
-    overflow: hidden;
+    overflow:hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
 }
 

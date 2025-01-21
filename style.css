@@ -12,6 +12,7 @@ body {
     line-height: 1.6;
     margin: 20px;
     background-color: #ffffff;
+    width:100%;
     
 }
 
@@ -22,6 +23,7 @@ body {
     background-color: cadetblue;
     padding:2rem;
     margin-bottom: 2rem;
+    width:100%;
    
 }
 

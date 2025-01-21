@@ -25,6 +25,7 @@ body {
     background-color:cadetblue;
     padding:2rem;
     margin-bottom:2rem;
+    width:100%;
 }
 h1 {
     text-align:center;
@@ -42,7 +43,7 @@ p {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
     gap:20px;
-   
+    width:100%;
 }
 
 .card {

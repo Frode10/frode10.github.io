@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mine GitHub Repositories</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			line-height: 1.6;
+			background-color: #f9f9f9;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			flex-direction: column;
+		}
+		h1 {
+			color: #333;
+			margin-bottom: 20px;
+		}
+		.button-list {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+		.button-list button {
+			padding: 10px 20px;
+			font-size: 16px;
+			color: white;
+			background-color: #007acc;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			text-transform: uppercase;
+		}
+		.button-list button:hover {
+			background-color: #005a99;
+		}
+	</style>
+</head>
+<body>
+	<h1>Mine Repositories</h1>
+	<div class="button-list">
+		<button onclick="window.location.href='https://github.com/brukernavn/repo1'">Repository 1</button>
+		<button onclick="window.location.href='https://github.com/brukernavn/repo2'">Repository 2</button>
+		<button onclick="window.location.href='https://github.com/brukernavn/repo3'">Repository 3</button>
+		<button onclick="window.location.href='https://github.com/brukernavn/repo4'">Repository 4</button>
+	</div>
+</body>
+</html>

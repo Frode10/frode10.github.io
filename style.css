@@ -7,7 +7,9 @@
 
 
 body {
-   
+   display:flex;
+   flex-wrap: wrap;
+   align-items: center;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 20px;
@@ -23,7 +25,7 @@ body {
     background-color: cadetblue;
     padding:2rem;
     margin-bottom: 2rem;
-    width:100%;
+    width:1280px;
    
 }
 

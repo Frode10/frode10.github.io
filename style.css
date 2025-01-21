@@ -19,7 +19,7 @@ body {
     margin:0;
     
 }
-
+/* tekst på toppen */
 .text-container {
     display: flex;
     flex-direction:column;

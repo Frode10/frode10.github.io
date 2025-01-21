@@ -3,9 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
 	<title>GitHub Pages Forhåndsvisning</title>
 	<style>
+		body {
+			font-family: Arial, sans-serif;
+			line-height: 1.6;
+			margin: 20px;
+			background-color: #f9f9f9;
+		}
+		h1 {
+			text-align: center;
+			color: #333;
+		}
 		.grid {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -38,24 +47,25 @@
 	</style>
 </head>
 <body>
-	<h1 style="text-align: center;">GitHub Pages Forhåndsvisninger</h1>
+	<h1>Mine GitHub Pages</h1>
 	<div class="grid" id="pages-list"></div>
 
 	<script>
 		const username = 'Frode10'; // Bytt til ditt GitHub-brukernavn
+		const apiKey = '79d850'; // Din Screenshot Machine API-nøkkel
 		const pagesList = document.getElementById('pages-list');
 
 		fetch(`https://api.github.com/users/${username}/repos`)
 			.then(response => response.json())
 			.then(data => {
 				data.forEach(repo => {
-					// URL til GitHub Pages
+					// Bygg URL for GitHub Pages
 					const pagesUrl = `https://${username}.github.io/${repo.name}`;
-					
-					// URL til forhåndsvisning (her brukt et generisk skjermbilde-API)
-					const screenshotUrl = `https://api.screenshotmachine.com?key=API_KEY&url=${pagesUrl}&dimension=300x300`;
 
-					// Opprett en kort med bilde og lenke
+					// URL for å hente skjermbilde
+					const screenshotUrl = `https://api.screenshotmachine.com?key=${apiKey}&url=${encodeURIComponent(pagesUrl)}&dimension=300x300`;
+
+					// Lag en kort med bilde og lenke
 					const card = document.createElement('div');
 					card.className = 'card';
 					card.innerHTML = `

@@ -9,13 +9,14 @@
 body {
    display:flex;
    flex-wrap:wrap;
-   align-items:center;
+   justify-content: center;
     font-family:Arial, sans-serif;
     line-height:1.6;
     margin:20px;
     background-color: #ffffff;
     width:100%;
     padding:0;
+    margin:0;
     
 }
 
@@ -44,6 +45,7 @@ p {
     grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
     gap:20px;
     width:100%;
+    max-width:1080px;
 }
 
 .card {

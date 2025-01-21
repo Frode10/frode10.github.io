@@ -30,20 +30,22 @@
 	</style>
 </head>
 <body>
-	<h1>Mine GitHub Repositories</h1>
+	<h1>Mine GitHub Pages</h1>
 	<ul id="repo-list"></ul>
 
 	<script>
 		// Bytt ut "brukernavn" med ditt GitHub-brukernavn
-		const username = 'frode10';
+		const username = 'frode10'; // Erstatt med ditt faktiske GitHub-brukernavn
 		const repoList = document.getElementById('repo-list');
 
 		fetch(`https://api.github.com/users/${username}/repos`)
 			.then(response => response.json())
 			.then(data => {
 				data.forEach(repo => {
+					// Bygg GitHub Pages URL i stedet for GitHub-repo URL
+					const pagesUrl = `https://${username}.github.io/${repo.name}`;
 					const listItem = document.createElement('li');
-					listItem.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+					listItem.innerHTML = `<a href="${pagesUrl}" target="_blank">${repo.name}</a>`;
 					repoList.appendChild(listItem);
 				});
 			})

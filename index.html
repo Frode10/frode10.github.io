@@ -4,50 +4,65 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-	<title>Mine GitHub Repositories</title>
+	<title>GitHub Pages Forhåndsvisning</title>
 	<style>
-		body {
-			font-family: Arial, sans-serif;
-			line-height: 1.6;
-			margin: 20px;
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 20px;
+			padding: 20px;
 		}
-		h1 {
-			color: #333;
+		.card {
+			text-align: center;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 		}
-		ul {
-			list-style-type: none;
-			padding: 0;
+		.card img {
+			width: 300px;
+			height: 300px;
+			object-fit: cover;
 		}
-		li {
-			margin: 10px 0;
-		}
-		a {
-			color: #007acc;
+		.card a {
+			display: block;
+			padding: 10px;
+			background-color: #007acc;
+			color: white;
 			text-decoration: none;
+			font-weight: bold;
 		}
-		a:hover {
-			text-decoration: underline;
+		.card a:hover {
+			background-color: #005a99;
 		}
 	</style>
 </head>
 <body>
-	<h1>Mine GitHub Pages</h1>
-	<ul id="repo-list"></ul>
+	<h1 style="text-align: center;">GitHub Pages Forhåndsvisninger</h1>
+	<div class="grid" id="pages-list"></div>
 
 	<script>
-		// Bytt ut "brukernavn" med ditt GitHub-brukernavn
-		const username = 'Frode10'; // Erstatt med ditt faktiske GitHub-brukernavn
-		const repoList = document.getElementById('repo-list');
+		const username = 'Frode10'; // Bytt til ditt GitHub-brukernavn
+		const pagesList = document.getElementById('pages-list');
 
 		fetch(`https://api.github.com/users/${username}/repos`)
 			.then(response => response.json())
 			.then(data => {
 				data.forEach(repo => {
-					// Bygg GitHub Pages URL i stedet for GitHub-repo URL
+					// URL til GitHub Pages
 					const pagesUrl = `https://${username}.github.io/${repo.name}`;
-					const listItem = document.createElement('li');
-					listItem.innerHTML = `<a href="${pagesUrl}" target="_blank">${repo.name}</a>`;
-					repoList.appendChild(listItem);
+					
+					// URL til forhåndsvisning (her brukt et generisk skjermbilde-API)
+					const screenshotUrl = `https://api.screenshotmachine.com?key=API_KEY&url=${pagesUrl}&dimension=300x300`;
+
+					// Opprett en kort med bilde og lenke
+					const card = document.createElement('div');
+					card.className = 'card';
+					card.innerHTML = `
+						<img src="${screenshotUrl}" alt="Forhåndsvisning av ${repo.name}" />
+						<a href="${pagesUrl}" target="_blank">${repo.name}</a>
+					`;
+					pagesList.appendChild(card);
 				});
 			})
 			.catch(error => console.error('Error fetching repos:', error));
